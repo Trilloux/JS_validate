@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>6.uzdevums-Javascript</title>
+    <meta name="author" content="Gvido Pelše" />
+    <meta name="viewport" content="width=device-width, initial scale=1.0" />
+    <meta name="description" content="Tēmas par web">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <link rel="stylesheet" href="CSS/index.css">
+    <script src="JS/index.js"></script>
+    
+    
+</head>
+<body>
+    <table id="tabula">
+        <form method="post" action="" name="regforma" id="regforma">
+            <tr>
+                <td colspan="2"><h1>Reģistrācijas forma</h1></td>
+            </tr>
+            <tbody>
+                <tr>
+                    <td><label>Vārds:<span class="req-lauks">*</span></label></td>
+                    <td><input type="text" name="vards" id="vards"/>
+                    <span id="nameError" class="error-message">Ierakstiet savu vārdu!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Uzvārds:<span class="req-lauks">*</span></label></td>
+                    <td><input type="text" name="uzvards" id="uzvards"/>
+                    <span id="snameError" class="error-message">Ierakstiet savu uzvārdu!</span>   
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Epasts:<span class="req-lauks">*</span></label></td>
+                    <td><input type="email" name="epasts" id="epasts"/>
+                    <span id="mailError" class="error-message">Ievadiet e-pasta adresi!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ageSelect">Izvēlieties vecumu:<span class="req-lauks">*</span></label></td>
+                    <td> <select id="ageSelect"  name="age">
+                        <option value="0">0</option>
+                        </select>
+                        <span id="ageError" class="error-message">Norādiet vecumu!</span>
+                        <script>
+                            var select = document.getElementById("ageSelect");
+                            // ciklā izveido vecuma opcijas līdz 100 gadiem
+                            for (var i = 1; i <= 100; i++) {
+                                var option = document.createElement("option");
+                                option.value = i;
+                                option.text = i;
+                                select.appendChild(option);  //select ir parent klase, option pievieno parent klasei
+                            }
+                        </script>
+                </tr>
+                <tr>
+                    <td id="koment"><label>Komentārs:</label></td>
+                    <td>
+                    <textarea cols="80" rows="3" name="piezimes" id="piezimes" placeholder="Ievadiet papildinformāciju"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Piekrītu noteikumiem:<span class="req-lauks">*</span></label></td>
+                    <td><input type="checkbox" name="checkbox" id="checkbox"/>
+                    <span id="checkboxError" class="error-message">Lūdzu, piekrītiet noteikumiem!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="buttons">
+                        <input type="submit" value="Saglabāt" class="poga" />
+                        <input type="reset" value="Atcelt" class="poga"/>
+                        <input type="button" value="Parādīt" onclick="paradit()" class="poga"/>
+                    </td>
+                </tr>
+            </tbody>
+        </form>
+    </table>
+    <div id="dati">
+        </div>
+</body>
+</html>
